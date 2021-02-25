@@ -134,6 +134,7 @@ async function boolean () {
     // perform mesh boolean union on server
     const res = await RhinoCompute.Mesh.createBooleanUnion(meshes)
     console.log(res)
+    console.log(rhino.CommonObject.decode(res[0]))
 
     // clear scene
     while(scene.children.length > 0){ 

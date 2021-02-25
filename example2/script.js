@@ -5,13 +5,19 @@ import rhino3dm from 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/rhino3dm
 import { RhinoCompute } from 'https://cdn.jsdelivr.net/npm/compute-rhino3d@0.13.0-beta/compute.rhino3d.module.js'
 
 // reference the definition
-const definitionName = 'rnd_node.gh'
+const definitionName = 'Assignment3.gh'
 
 // listen for slider change events
-const count_slider = document.getElementById( 'count' )
-count_slider.addEventListener( 'input', onSliderChange, false )
-const radius_slider = document.getElementById( 'radius' )
-radius_slider.addEventListener( 'input', onSliderChange, false )
+const radius1_slider = document.getElementById( 'radius1' )
+radius1_slider.addEventListener( 'input', onSliderChange, false )
+const loops_slider = document.getElementById( 'loops' )
+loops_slider.addEventListener( 'input', onSliderChange, false )
+const seed_slider = document.getElementById( 'seed' )
+seed_slider.addEventListener( 'input', onSliderChange, false )
+const radius2_slider = document.getElementById( 'radius2' )
+radius2_slider.addEventListener( 'input', onSliderChange, false )
+const planedir_slider = document.getElementById( 'planedir' )
+planedir_slider.addEventListener( 'input', onSliderChange, false )
 
 const downloadButton = document.getElementById("downloadButton")
 downloadButton.onclick = download
@@ -49,19 +55,31 @@ async function compute() {
     // collect data
 
     // get slider values
-    let count = document.getElementById('count').valueAsNumber
-    let radius = document.getElementById('radius').valueAsNumber
+    let radius1 = document.getElementById('radius1').valueAsNumber
+    let loops = document.getElementById('loops').valueAsNumber
+    let seed = document.getElementById('seed').valueAsNumber
+    let radius2 = document.getElementById('radius2').valueAsNumber
+    let planedir = document.getElementById('planedir').valueAsNumber
 
     // format data
-    let param1 = new RhinoCompute.Grasshopper.DataTree('RH_IN:radius')
-    param1.append([0], [radius])
-    let param2 = new RhinoCompute.Grasshopper.DataTree('RH_IN:count')
-    param2.append([0], [count])
+    let param1 = new RhinoCompute.Grasshopper.DataTree('RH_IN:radius1')
+    param1.append([0], [radius1])
+    let param2 = new RhinoCompute.Grasshopper.DataTree('RH_IN:loops')
+    param2.append([0], [loops])
+    let param3= new RhinoCompute.Grasshopper.DataTree('RH_IN:seed')
+    param3.append([0], [seed])
+    let param4 = new RhinoCompute.Grasshopper.DataTree('RH_IN:radius2')
+    param4.append([0], [radius2])
+    let param5 = new RhinoCompute.Grasshopper.DataTree('RH_IN:planedir')
+    param5.append([0], [planedir])
 
     // Add all params to an array
     let trees = []
     trees.push(param1)
     trees.push(param2)
+    trees.push(param3)
+    trees.push(param4)
+    trees.push(param5)
 
     // Call RhinoCompute
 
@@ -144,7 +162,7 @@ function getApiKey() {
 // download button handler
 function download () {
     let buffer = doc.toByteArray()
-    saveByteArray("node.3dm", buffer)
+    saveByteArray("Assignment3_Basel.3dm", buffer)
 }
 
 function saveByteArray ( fileName, byte ) {

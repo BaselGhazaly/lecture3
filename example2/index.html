@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="data:;base64,=">
-		<title>S1 - Lecture 3 - Example 2</title>
+		<title>Basel ghazaly - S1 - Assignment 3</title>
 		<style>
 			body { 
                 margin: 0;
@@ -36,13 +36,25 @@
 	<body>
         <div id="loader"></div>
         <div>
-            <input type="range" id="count" name="count" min="2" max="20" value="5" step="1">
-            <label for="count">count</label>
+            <input type="range" id="radius1" name="radius1" min="1" max="20" value="10" step="1">
+            <label for="radius1">Sphere's radius</label>
         </div>
         <div>
-            <input type="range" id="radius" name="radius" min="5" max="20" value="5" step="1">
-            <label for="radius">radius</label>
+            <input type="range" id="loops" name="loops" min="1" max="100" value="50" step="1">
+            <label for="loops">No. of loops</label>
         </div>
+        <div>
+            <input type="range" id="seed" name="seed" min="1" max="5" value="2" step="1">
+            <label for="seed">Random seed</label>
+        </div>
+        <div>
+            <input type="range" id="radius2" name="radius2" min="0.1" max="0.4" value="0.1" step="0.1">
+            <label for="radius2">Pipe's radius</label>
+          </div>
+          <div>
+            <input type="range" id="planedir" name="planedir" min="0.0" max="1.0" value="0.5" step="0.1">
+            <label for="planedir">Loop position</label>
+          </div>
         <button id="downloadButton" disabled>Download</button>
         <script type="module" src="./script.js"></script>
 	</body>
